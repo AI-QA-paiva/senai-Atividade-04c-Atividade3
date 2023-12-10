@@ -54,6 +54,15 @@ namespace Exo.WebApi.Repositories
             _context.Usuarios.Remove(qualId);
             _context.SaveChanges();
         }
+
+
+        //aplicando segurança de acesso, com aplicação de Token JWT e Cors (áreas restritas)
+
+
+        public Usuario Login(string email, string senha)
+        {
+            return _context.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
         
 
 
@@ -63,10 +72,3 @@ namespace Exo.WebApi.Repositories
 
     }
 }
-
-//para usar depois na fase de teste de JWT
-
-//public Usuario Login(string email, string senha)
-//        {
-//            return _context.Usuarios.FirstOrDefault(u => u.Email == email && uint.Senha == senha);
-//        }
