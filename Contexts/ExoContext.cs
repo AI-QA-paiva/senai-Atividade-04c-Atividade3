@@ -27,8 +27,15 @@ namespace Exo.WebApi.Contexts
             }
         }
 
+        
+        //abaixo fazemos a integração da classe Model com a tabela respectiva no SQL
+        //na qual indicamos com isso que a classe repository.cs irá se comunicar
+        
         //abaixo vai referenciando a classe Projeto.cs
         public DbSet<Projeto> Projetos {get; set;}
+
+        //abaixo vai referenciando a classe Usuario.cs
+        public DbSet<Usuario> Usuarios {get; set;}  
     }
 }
 
